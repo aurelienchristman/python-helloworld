@@ -1,3 +1,4 @@
+@Library('shared-libraries')
 pipeline {
   agent {
     node {
@@ -19,13 +20,7 @@ pipeline {
     }
 
     stage('Deploy') {
-      when {
-        branch 'master'
-      }
-      steps {
-        sh 'gcloud app deploy'
-      }
+      deploy()
     }
-
   }
 }
